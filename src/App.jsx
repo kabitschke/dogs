@@ -14,7 +14,8 @@ const App = () => {
         <Header />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/login' element={<Login />} />
+          <Route path='/login/*' element={<Login />} />
+          {/** O asterico indica que há sub Rotas */}
         </Routes>
         <Footer />
       </BrowserRouter>
