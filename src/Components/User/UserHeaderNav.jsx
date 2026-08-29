@@ -1,18 +1,27 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../UserContext';
 import MinhasFotos from '../../Assets/feed.svg?react';
 import Estatisticas from '../../Assets/estatisticas.svg?react';
 import AdicionarFoto from '../../Assets/adicionar.svg?react';
 import Sair from '../../Assets/sair.svg?react';
 import styles from './UserHeaderNav.module.css';
+import useMedia from '../../Hooks/useMedia';
 
 const UserHeaderNav = () => {
-  const [mobile, setMobile] = React.useState(null);
   const { userLogout } = React.useContext(UserContext);
+  const navigate = useNavigate();
+  const mobile = useMedia('(max-width: 40rem)');
+
+
+
+  const handleLogout = () => {
+    userLogout();
+    navigate('/login');
+  }
   return (
     <nav className={styles.nav}>
-      <NavLink to="/conta">
+      <NavLink to="/conta" end>
         <MinhasFotos />
         {mobile && 'Minhas Fotos'}
       </NavLink>
@@ -24,7 +33,7 @@ const UserHeaderNav = () => {
         <AdicionarFoto />
         {mobile && 'Adicionar Foto'}
       </NavLink>
-      <button onClick={userLogout}>
+      <button onClick={handleLogout}>
         <Sair />
         {mobile && 'Sair'}
       </button>
