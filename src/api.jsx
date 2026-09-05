@@ -1,3 +1,5 @@
+import { cache } from 'react';
+
 export const API_URL = 'https://dogsapi.origamid.dev/json';
 
 export function TOKEN_POST(body) {
@@ -37,7 +39,6 @@ export function USER_GET(token) {
   };
 }
 
-
 export function USER_POST(body) {
   return {
     url: API_URL + '/api/user',
@@ -51,7 +52,6 @@ export function USER_POST(body) {
   };
 }
 
-
 export function PHOTO_POST(formData, token) {
   return {
     url: API_URL + '/api/photo',
@@ -60,7 +60,17 @@ export function PHOTO_POST(formData, token) {
       headers: {
         Authorization: 'Bearer ' + token,
       },
-      body: formData
+      body: formData,
+    },
+  };
+}
+
+export function PHOTOS_GET({ page, total, user }) {
+  return {
+    url: `${API_URL}/api/photo/?_page=${page}&_total=${total}&_user=${user}`,
+    options: {
+      method: 'GET',
+      cache: 'no-store',
     },
   };
 }
