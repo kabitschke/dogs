@@ -3,10 +3,11 @@ import FeedModal from './FeedModal';
 import FeedPhotos from './FeedPhotos';
 
 const Feed = () => {
+  const [modalphoto, setModalPhoto] = React.useState(null);
   return (
     <div>
-      <FeedModal />
-      <FeedPhotos />
+      {modalphoto && <FeedModal photo={modalphoto} />}
+      <FeedPhotos setModalPhoto={setModalPhoto} />
     </div>
   );
 };
