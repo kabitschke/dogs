@@ -10,7 +10,7 @@ const PhotoContent = ({ data }) => {
       <div className={styles.img}>
         <img src={photo.src} alt={photo.title} />
       </div>
-      <div className={styles.detail}>
+      <div className={styles.details}>
         <div>
           <p className={styles.author}>
             <Link to={`/perfil/${photo.author}`}>@{photo.author}</Link>
