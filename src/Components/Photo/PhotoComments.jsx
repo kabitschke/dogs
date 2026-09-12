@@ -12,7 +12,7 @@ const PhotoComments = (props) => {
   React.useEffect(() => {
     commentsSection.current.scrollTop = commentsSection.current.scrollHeight;
   }, [comments]);
-  console.log('Ref ', commentsSection);
+
   return (
     <>
       <ul ref={commentsSection} className={styles.comments}>
