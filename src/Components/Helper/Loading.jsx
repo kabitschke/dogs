@@ -18,6 +18,8 @@ const Loading = () => {
     };
   }, []);
 
+  /**Enquanto Loading for true o loop fica rodando */
+
   function displayStep(i) {
     return {
       display: step === i ? 'block' : 'none',
