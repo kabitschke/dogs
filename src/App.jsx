@@ -8,6 +8,8 @@ import { UserStorage } from './UserContext';
 import User from './Components/User/User';
 import ProtectedRouter from './Components/Helper/ProtectedRouter';
 import Photo from './Components/Photo/Photo';
+import UserProfile from './Components/User/UserProfile';
+import NotFound from './Components/NotFound';
 
 const App = () => {
   return (
@@ -27,7 +29,9 @@ const App = () => {
               }
             />
             <Route path="foto/:id" element={<Photo />} />
-            {/** O asterico indica que há sub Rotas */}
+            <Route path="perfil/:user" element={<UserProfile />} />
+            <Route path="*" element={<NotFound />} />
+            {/** O asterico indica que há sub Rotas e também indica página não encontrada*/}
           </Routes>
           <Footer />
         </UserStorage>
