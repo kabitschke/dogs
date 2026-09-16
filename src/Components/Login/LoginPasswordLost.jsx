@@ -3,8 +3,8 @@ import Input from '../Forms/Input';
 import Button from '../Forms/Button';
 import useForm from '../../Hooks/useForm';
 import useFetch from '../../Hooks/useFetch';
-import { PASSWORD_LOST } from '../../api';
 import Error from '../Helper/Error';
+import { PASSWORD_LOST } from '../../api';
 
 const LoginPasswordLost = () => {
   const login = useForm();
