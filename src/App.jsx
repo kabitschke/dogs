@@ -13,26 +13,28 @@ import NotFound from './Components/NotFound';
 
 const App = () => {
   return (
-    <div>
+    <div className="App">
       <BrowserRouter>
         <UserStorage>
           <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login/*" element={<Login />} />
-            <Route
-              path="/conta/*"
-              element={
-                <ProtectedRouter>
-                  <User />
-                </ProtectedRouter>
-              }
-            />
-            <Route path="foto/:id" element={<Photo />} />
-            <Route path="perfil/:user" element={<UserProfile />} />
-            <Route path="*" element={<NotFound />} />
-            {/** O asterico indica que há sub Rotas e também indica página não encontrada*/}
-          </Routes>
+          <main className="AppBody">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login/*" element={<Login />} />
+              <Route
+                path="/conta/*"
+                element={
+                  <ProtectedRouter>
+                    <User />
+                  </ProtectedRouter>
+                }
+              />
+              <Route path="foto/:id" element={<Photo />} />
+              <Route path="perfil/:user" element={<UserProfile />} />
+              <Route path="*" element={<NotFound />} />
+              {/** O asterico indica que há sub Rotas e também indica página não encontrada*/}
+            </Routes>
+          </main>
           <Footer />
         </UserStorage>
       </BrowserRouter>
